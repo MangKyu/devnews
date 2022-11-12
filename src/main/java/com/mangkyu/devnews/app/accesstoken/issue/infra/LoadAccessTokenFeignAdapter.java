@@ -14,7 +14,8 @@ class LoadAccessTokenFeignAdapter implements LoadAccessToken {
 
     @Override
     public AccessToken issue(AccessTokenProperties accessTokenProperties) {
-        LoadAccessTokenFeignResponse response = feignClient.issue(toRequest(accessTokenProperties));
+        LoadAccessTokenFeignResponse response = feignClient.issue(
+                toRequest(accessTokenProperties));
         return response.toDomain();
     }
 
@@ -29,7 +30,7 @@ class LoadAccessTokenFeignAdapter implements LoadAccessToken {
     }
 
     private String createAssertion(AccessTokenProperties accessTokenProperties) {
-        return null;
+        return TokenUtils.generateJwtToken(accessTokenProperties);
     }
 
 }

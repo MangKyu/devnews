@@ -1,11 +1,40 @@
 openapi:
-  url: corp.worksapis.com
+  token-url: https://enterprise-auth.navercorp.com
   secret:
     client-id: 3hzwfZ60gzttORCzK2eI
     client-secret: QBLPVxYUhl
     grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
     scope: bot
     service-account: jpfyp.serviceaccount@worksmobile.com
+    private-key:
+      -----BEGIN PRIVATE KEY-----
+      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCmjLU1NFJTgqsK
+      JF6GGtLdvwRbBnZ4gcyPhnpWae4igZubdF63arnZn7BDjd3hXywDguEnpByCBASc
+      qLRzs+ZXit0nV5Iiq2QF5XYJYm/2HWKR1tRY3bSaakkrSywW5gnsJteLjuqrvtfA
+      wP8iubsl8T5QnCI8gi5kS/Lkxyvfm7wXobMzap4D1IAXq1/RSWuRXWf5h1WXFUNT
+      IHgqwxNGHmFdyUsG/tGThTUoWyiv6h3aIQ6EjaRIzpIlQ3J4WRjTUViRWca+a9D7
+      NMjZek8fCqb6kphqNR+fn/CUFFK6qdfvXWVZlnXPULhqAo3ObbWI6VPgWq1X3VF7
+      t96lxP/LAgMBAAECggEBAKSkIFYyHNg1KgPipBaJ2b4foJyjLOY/2gpf8/wMx74Q
+      xdTNGvzSYlrBw6tkSN0MCiSGczGOyCe29SAwngJq6t/LhIfpx6rCJyS1CxSH3Qo9
+      Tj3BUzVuJaUoQKCttS4FxfVPCHELnOyewgXoQ87+MAV4EBP75NRQFLBNbBXA1pw6
+      ZfpSENz1pOBvjLf+VmM756EnkDx6P9IxpSEktdKcrsOzq+VDeJifSzKeDeIDgwti
+      5daR1yWbNO+6WoVPXbktxiHpY+Z96abekj1g89O7eDlETNYQ88EJ9MEROvN7QVqQ
+      XdjbTGthrmJdWIs5d9HrZCsueiWm1t7P9cfbfQ63BFECgYEA+azUeT+/oM+GFl8E
+      artWbwY5wkxz7ugaSG4lJB7oIsygAtMcsNc0efny9Yus9awdlgAWhI9Oz3kp0zxq
+      1QDCLNcMvJ0p9QjFouVHNhQwZwSJGdx1KTnfPuXbyu9BZOXsDoXmoe+X7Ud4HIBU
+      fmGZL2YZ4OMbOl8dck2G1B4FaKcCgYEAqsTM2aqOSUcZCjNDHC7r2skuNz+D8BUS
+      nM6LwjdLs3RW1R0eRVcfr9AYvSBUfyf4j59W4ed0Ej6wyfGCGvzHoV//Qvmf8Am4
+      QfAjrA6vpDLUSWdeQUXTH925gnYJp1JaENmH8HVHfoR2+PW1SY29u0XppGXe+dAk
+      EiOq8L3+cD0CgYA6AJ2nwViKSkuzPMWw6e6Nglu+uLYiJUed1gDI4Gk7VGBD57l9
+      l7E4OQnpY1Z+CEsjQsf4abZ8WoCN8zY6X5+8fQUXeEd8Blqrmiot9Qi9lf8nw+Bw
+      AGLNoOarwWNmxkdNpGvM6PVZiUXtER8P8Sp+KXEPnpL/v4L+v+X3tzW4dwKBgBqp
+      TzJMpppaN1aYWkn0KW6nKkgF6pt5Lsa8mKVh7Le/2i67tRYuXAwe+T3N5mNT4kLK
+      Jc5vTHfswb1Fr4J3JNPVIQ1b29SmL9Zbn7YlNNb1+J7dPKIEPMok2+m6dBdjjBxF
+      Wiv4o4jlNY35DqzFLHIooCnCneVy0a7jUrTzdN4hAoGBANLsWkJiB8dcVVSz5EIG
+      zW6r5X+c/AXkHbt7EaeVU92pZg9d9OOQOoq1qm2m+T/el97MyUqYvpqSlzIbPx60
+      KZ2LoKi7+sRalgvq8dJYmNzWGeifyK/pdG5IRI/cyTdzDgcD/xwkUbyRzLTuKdHZ
+      Xv0E1oq2NT3uSuBUhECUf8b2
+      -----END PRIVATE KEY-----
 
   bot:
     id: 2740245

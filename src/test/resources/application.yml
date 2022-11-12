@@ -6,3 +6,7 @@ openapi:
     grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
     scope: bot
     service-account: jpfyp.serviceaccount@worksmobile.com
+
+  bot:
+    id: 2740245
+    secret: E3JwUoVTZy6ZHqZGQc/ujNf0UvEHB8

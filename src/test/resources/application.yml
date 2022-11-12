@@ -1,0 +1,8 @@
+openapi:
+  url: corp.worksapis.com
+  secret:
+    client-id: 3hzwfZ60gzttORCzK2eI
+    client-secret: QBLPVxYUhl
+    grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+    scope: bot
+    service-account: jpfyp.serviceaccount@worksmobile.com

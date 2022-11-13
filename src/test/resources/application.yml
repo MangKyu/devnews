@@ -5,7 +5,7 @@ openapi:
     client-id: 3hzwfZ60gzttORCzK2eI
     client-secret: QBLPVxYUhl
     grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
-    scope: bot
+    scope: user, bot
     service-account: jpfyp.serviceaccount@worksmobile.com
     private-key:
       -----BEGIN PRIVATE KEY-----

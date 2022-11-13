@@ -1,7 +1,7 @@
 package com.mangkyu.devnews.config.feign;
 
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.openfeign.FeignAutoConfiguration;
 
 import java.lang.annotation.ElementType;
@@ -9,13 +9,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@SpringBootTest(
-        classes = {
-                FeignConfig.class,
-                FeignAutoConfiguration.class,
-                HttpMessageConvertersAutoConfiguration.class}
-)
+
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FeignTest {
+@ImportAutoConfiguration({
+        FeignConfig.class,
+        FeignAutoConfiguration.class,
+        HttpMessageConvertersAutoConfiguration.class,
+})
+public @interface EnableFeignTest {
+
 }

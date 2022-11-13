@@ -1,5 +1,6 @@
 openapi:
   token-url: https://enterprise-auth.navercorp.com
+  api-url: https://corp.worksapis.com
   secret:
     client-id: 3hzwfZ60gzttORCzK2eI
     client-secret: QBLPVxYUhl

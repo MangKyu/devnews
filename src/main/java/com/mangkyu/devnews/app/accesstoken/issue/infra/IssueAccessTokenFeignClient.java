@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient(url = "${openapi.token-url}", name = "LoadAuthCodeFeignClient")
-interface LoadAccessTokenFeignClient {
+interface IssueAccessTokenFeignClient {
 
     @PostMapping(value = "/oauth2/v2.0/token", consumes = "application/x-www-form-urlencoded")
-    LoadAccessTokenFeignResponse issue(
-            @ModelAttribute LoadAccessTokenFeignRequest request
+    IssueAccessTokenFeignResponse issue(
+            @ModelAttribute IssueAccessTokenFeignRequest request
     );
 
 }

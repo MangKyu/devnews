@@ -2,25 +2,25 @@ package com.mangkyu.devnews.app.accesstoken.issue.infra;
 
 import com.mangkyu.devnews.app.accesstoken.AccessTokenProperties;
 import com.mangkyu.devnews.app.accesstoken.issue.domain.AccessToken;
-import com.mangkyu.devnews.app.accesstoken.issue.domain.LoadAccessToken;
+import com.mangkyu.devnews.app.accesstoken.issue.domain.IssueAccessTokenClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-class LoadAccessTokenFeignAdapter implements LoadAccessToken {
+class IssueAccessTokenClientFeignAdapter implements IssueAccessTokenClient {
 
-    private final LoadAccessTokenFeignClient feignClient;
+    private final IssueAccessTokenFeignClient feignClient;
 
     @Override
     public AccessToken issue(AccessTokenProperties accessTokenProperties) {
-        LoadAccessTokenFeignResponse response = feignClient.issue(
+        IssueAccessTokenFeignResponse response = feignClient.issue(
                 toRequest(accessTokenProperties));
         return response.toDomain();
     }
 
-    private LoadAccessTokenFeignRequest toRequest(AccessTokenProperties accessTokenProperties) {
-        return LoadAccessTokenFeignRequest.builder()
+    private IssueAccessTokenFeignRequest toRequest(AccessTokenProperties accessTokenProperties) {
+        return IssueAccessTokenFeignRequest.builder()
                 .client_id(accessTokenProperties.getClientId())
                 .client_secret(accessTokenProperties.getClientSecret())
                 .grant_type(accessTokenProperties.getGrantType())

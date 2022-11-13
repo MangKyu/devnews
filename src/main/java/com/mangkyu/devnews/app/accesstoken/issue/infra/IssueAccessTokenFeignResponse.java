@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoadAccessTokenFeignResponse {
+public class IssueAccessTokenFeignResponse {
 
     private String access_token;
     private String refresh_token;

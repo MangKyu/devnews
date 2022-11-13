@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoadAccessTokenFeignRequest {
+public class IssueAccessTokenFeignRequest {
 
     private String client_id;
     private String client_secret;

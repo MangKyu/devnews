@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class IssueAccessTokenUseCase {
 
-    private final LoadAccessToken authCodeClient;
+    private final IssueAccessTokenClient authCodeClient;
     private final AccessTokenProperties accessTokenProperties;
 
     public AccessToken issue() {

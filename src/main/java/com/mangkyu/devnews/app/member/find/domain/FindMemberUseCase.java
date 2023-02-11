@@ -8,11 +8,11 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-class FindMemberUseCase {
+public class FindMemberUseCase {
 
     private final FindMemberClient client;
 
-    Optional<Member> find(String userId) {
+    public Optional<Member> find(String userId) {
         return client.findByUserId(userId);
     }
 }

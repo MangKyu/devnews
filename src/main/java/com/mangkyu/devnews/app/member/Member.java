@@ -20,5 +20,9 @@ public class Member {
     private long id;
 
     private String userId;
+    private int domainId;
+    private String channelId;
+    private String secretKey;
+
 
 }

@@ -2,7 +2,7 @@ package com.mangkyu.devnews.app.bot.receivemessage.infra;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mangkyu.devnews.app.bot.receivemessage.domain.ReceiveMessage;
+import com.mangkyu.devnews.app.bot.receivemessage.ReceiveMessage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

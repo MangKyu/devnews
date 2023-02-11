@@ -1,6 +1,6 @@
 package com.mangkyu.devnews.app.bot.receivemessage.infra;
 
-import com.mangkyu.devnews.app.bot.receivemessage.domain.ReceiveMessage;
+import com.mangkyu.devnews.app.bot.receivemessage.ReceiveMessage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

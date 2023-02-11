@@ -1,15 +1,15 @@
 package com.mangkyu.devnews.app.accesstoken.issue.domain;
 
 import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
-import com.mangkyu.devnews.config.feign.EnableFeignTest;
 import com.mangkyu.devnews.config.properties.PropertiesConfig;
+import com.mangkyu.system.TestActiveProfile;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@EnableFeignTest
+@TestActiveProfile
 @SpringBootTest(classes = {AccessTokenConfiguration.class, PropertiesConfig.class})
 class IssueAccessTokenUseCaseTest {
 

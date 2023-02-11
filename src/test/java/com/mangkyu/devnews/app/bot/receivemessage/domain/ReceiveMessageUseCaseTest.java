@@ -4,8 +4,8 @@ import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
 import com.mangkyu.devnews.app.bot.BotConfiguration;
 import com.mangkyu.devnews.app.bot.receivemessage.ReceiveMessage;
 import com.mangkyu.devnews.app.bot.receivemessage.ReceiveMessageEvent;
-import com.mangkyu.devnews.config.feign.EnableFeignTest;
 import com.mangkyu.devnews.config.properties.PropertiesConfig;
+import com.mangkyu.system.TestActiveProfile;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@EnableFeignTest
+@TestActiveProfile
 @SpringBootTest(classes = {BotConfiguration.class, AccessTokenConfiguration.class, PropertiesConfig.class})
 class ReceiveMessageUseCaseTest {
 

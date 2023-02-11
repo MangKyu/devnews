@@ -3,8 +3,8 @@ package com.mangkyu.devnews.app.bot.receivemessage.infra;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
 import com.mangkyu.devnews.app.bot.BotConfiguration;
-import com.mangkyu.devnews.config.feign.EnableFeignTest;
 import com.mangkyu.devnews.config.properties.PropertiesConfig;
+import com.mangkyu.system.TestActiveProfile;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@EnableFeignTest
+@TestActiveProfile
 @AutoConfigureJson
 @AutoConfigureWebMvc
 @AutoConfigureMockMvc

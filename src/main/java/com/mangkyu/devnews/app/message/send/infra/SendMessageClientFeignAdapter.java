@@ -22,11 +22,21 @@ class SendMessageClientFeignAdapter implements SendMessageClient {
     private final MessageProperties messageProperties;
 
     @Override
-    public void send(String accessToken, String userId, String message) {
-        client.send(
+    public void sendToUser(String accessToken, String userId, String message) {
+        client.sendToUser(
                 "Bearer " + accessToken,
                 messageProperties.getId(),
                 userId,
+                new SendMessageFeignRequest(message)
+        );
+    }
+
+    @Override
+    public void sendToChannel(String accessToken, String channelId, String message) {
+        client.sendToChannel(
+                "Bearer " + accessToken,
+                messageProperties.getId(),
+                channelId,
                 new SendMessageFeignRequest(message)
         );
     }

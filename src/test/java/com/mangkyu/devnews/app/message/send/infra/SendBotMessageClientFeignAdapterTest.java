@@ -5,9 +5,13 @@ import com.mangkyu.devnews.system.bean.TestService;
 
 @TestService
 class SendMessageClientFeignAdapter implements SendMessageClient {
+    @Override
+    public void sendToUser(String accessToken, String userId, String message) {
+
+    }
 
     @Override
-    public void send(String accessToken, String userId, String message) {
+    public void sendToChannel(String accessToken, String channelId, String message) {
 
     }
 }

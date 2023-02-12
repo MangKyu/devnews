@@ -26,7 +26,7 @@ class SendMessageUseCaseTest {
         String message = "이것은 메세지입니다.";
 
         // when
-        useCase.send(message);
+        useCase.send(message, "d5a47dae-79ef-48d9-15b2-014ba89c70fb");
 
 //        AccessToken result = accessTokenUseCase.issue();
 //

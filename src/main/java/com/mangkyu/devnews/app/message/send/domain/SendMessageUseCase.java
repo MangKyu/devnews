@@ -21,8 +21,9 @@ public class SendMessageUseCase {
     private final IssueAccessTokenUseCase issueAccessTokenUseCase;
     private final SendMessageClient sendMessageClient;
 
-    public void send(String message) {
+    public void send(String message, String channelId) {
         AccessToken accessToken = issueAccessTokenUseCase.issue();
-        sendMessageClient.send(accessToken.getAccessToken(), "d5a47dae-79ef-48d9-15b2-014ba89c70fb", message);
+        sendMessageClient.sendToChannel(accessToken.getAccessToken(), channelId, message);
     }
+
 }

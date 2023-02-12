@@ -19,10 +19,18 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public interface SendMessageFeignClient {
 
     @PostMapping("/v1.0/bots/{botId}/users/{userId}/messages")
-    void send(
+    void sendToUser(
             @RequestHeader("Authorization") String authorization,
             @PathVariable int botId,
             @PathVariable String userId,
+            @RequestBody SendMessageFeignRequest request
+    );
+
+    @PostMapping("/v1.0/bots/{botId}/channels/{channelId}/messages")
+    void sendToChannel(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable int botId,
+            @PathVariable String channelId,
             @RequestBody SendMessageFeignRequest request
     );
 

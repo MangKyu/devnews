@@ -22,9 +22,9 @@ public class ReceiveMessage {
 
     private ReceiveMessageEvent findMessageType() {
         if (message.startsWith("/키등록")) {
-            return new SaveSecretKeyEvent(ReceiveMessageType.SAVE_SECRET_KEY, this);
+            return new SaveSecretKeyEvent(this);
         }
 
-        return new TalkEvent(ReceiveMessageType.TALK, this);
+        return new TalkEvent(this);
     }
 }

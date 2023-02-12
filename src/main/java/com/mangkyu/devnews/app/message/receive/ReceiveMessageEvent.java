@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public abstract class ReceiveMessageEvent {
 
-    private ReceiveMessageType messageType;
     private ReceiveMessage message;
 
 }

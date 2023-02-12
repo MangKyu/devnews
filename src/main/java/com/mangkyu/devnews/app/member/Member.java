@@ -25,4 +25,8 @@ public class Member {
     private String secretKey;
 
 
+    public void update(String channelId, String secretKey) {
+        this.channelId = channelId;
+        this.secretKey = secretKey;
+    }
 }

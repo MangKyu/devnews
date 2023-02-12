@@ -2,7 +2,10 @@ package com.mangkyu.devnews.app.member.add.domain;
 
 import com.mangkyu.devnews.app.member.Member;
 import com.mangkyu.devnews.app.member.find.domain.FindMemberUseCase;
+import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
+import com.mangkyu.devnews.app.message.receive.SaveSecretKeyEvent;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +17,18 @@ class AddMemberUseCase {
     private final FindMemberUseCase findMemberUseCase;
     private final AddMemberClient addMemberClient;
 
+    @EventListener
     @Transactional
-    public void add(String userId, int domainId, String channelId, String secretKey) {
-        findMemberUseCase.find(userId)
+    void save(SaveSecretKeyEvent event) {
+        ReceiveMessage message = event.getMessage();
+        Member member = add(message.getUserId(), message.getDomainId(), message.getChannelId(), message.getMessage());
+
+        member.update(message.getChannelId(), message.getMessage());
+    }
+
+    @Transactional
+    public Member add(String userId, int domainId, String channelId, String secretKey) {
+        return findMemberUseCase.find(userId)
                 .orElseGet(() -> save(userId, domainId, channelId, secretKey));
 
     }

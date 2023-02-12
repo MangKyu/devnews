@@ -1,21 +1,16 @@
 package com.mangkyu.devnews.app.message.receive.domain;
 
-import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
-import com.mangkyu.devnews.app.message.MessageConfiguration;
+import com.mangkyu.devnews.app.message.MessageTestConfig;
 import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
 import com.mangkyu.devnews.app.message.receive.ReceiveMessageEvent;
-import com.mangkyu.devnews.config.properties.PropertiesConfig;
-import com.mangkyu.system.TestActiveProfile;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestActiveProfile
-@SpringBootTest(classes = {MessageConfiguration.class, AccessTokenConfiguration.class, PropertiesConfig.class})
+@MessageTestConfig
 class ReceiveMessageUseCaseTest {
 
     @Autowired

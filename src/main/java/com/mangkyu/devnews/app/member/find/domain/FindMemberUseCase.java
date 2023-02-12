@@ -15,4 +15,9 @@ public class FindMemberUseCase {
     public Optional<Member> find(String userId) {
         return client.findByUserId(userId);
     }
+
+    public Member findByUserId(String userId) {
+        return client.findByUserId(userId)
+                .orElseThrow(IllegalStateException::new);
+    }
 }

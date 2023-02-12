@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-class AddMemberUseCase {
+public class AddMemberUseCase {
 
     private final FindMemberUseCase findMemberUseCase;
     private final AddMemberClient addMemberClient;
@@ -20,14 +20,14 @@ class AddMemberUseCase {
     @EventListener
     @Transactional
     public void save(SaveSecretKeyEvent event) {
-        ReceiveMessage message = event.getMessage();
+        ReceiveMessage message = event.getReceiveMessage();
         Member member = add(message.getUserId(), message.getDomainId(), message.getChannelId(), event.getSecretKey());
 
         member.update(message.getChannelId(), message.getMessage());
     }
 
     @Transactional
-    Member add(String userId, int domainId, String channelId, String secretKey) {
+    public Member add(String userId, int domainId, String channelId, String secretKey) {
         return findMemberUseCase.find(userId)
                 .orElseGet(() -> save(userId, domainId, channelId, secretKey));
 

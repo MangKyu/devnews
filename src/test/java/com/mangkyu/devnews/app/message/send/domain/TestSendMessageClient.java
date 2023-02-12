@@ -1,10 +1,10 @@
-package com.mangkyu.devnews.app.message.send.infra;
+package com.mangkyu.devnews.app.message.send.domain;
 
-import com.mangkyu.devnews.app.message.send.domain.SendMessageClient;
 import com.mangkyu.devnews.system.bean.TestService;
 
 @TestService
-class SendMessageClientFeignAdapter implements SendMessageClient {
+class TestSendMessageClient implements SendMessageClient {
+
     @Override
     public void sendToUser(String accessToken, String userId, String message) {
 

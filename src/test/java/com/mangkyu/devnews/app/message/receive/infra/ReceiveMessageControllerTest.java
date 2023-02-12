@@ -1,16 +1,12 @@
 package com.mangkyu.devnews.app.message.receive.infra;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
-import com.mangkyu.devnews.app.message.MessageConfiguration;
-import com.mangkyu.devnews.config.properties.PropertiesConfig;
-import com.mangkyu.system.TestActiveProfile;
+import com.mangkyu.devnews.app.message.MessageTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -20,11 +16,10 @@ import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@TestActiveProfile
 @AutoConfigureJson
 @AutoConfigureWebMvc
 @AutoConfigureMockMvc
-@SpringBootTest(classes = {MessageConfiguration.class, AccessTokenConfiguration.class, PropertiesConfig.class})
+@MessageTestConfig
 class ReceiveMessageControllerTest {
 
     @Autowired

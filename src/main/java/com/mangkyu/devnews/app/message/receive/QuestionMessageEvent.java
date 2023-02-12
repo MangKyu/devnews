@@ -18,7 +18,7 @@ public class QuestionMessageEvent extends ReceiveMessageEvent {
     }
 
     public String getQuestion() {
-        String message = getMessage().getMessage();
+        String message = getMessage();
         String[] split = message.split(" ");
         if (ArrayUtils.getLength(split) < 2) {
             return StringUtils.EMPTY;

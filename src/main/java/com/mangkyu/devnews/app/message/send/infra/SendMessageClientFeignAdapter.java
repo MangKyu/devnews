@@ -11,10 +11,11 @@ package com.mangkyu.devnews.app.message.send.infra;
 
 import com.mangkyu.devnews.app.message.MessageProperties;
 import com.mangkyu.devnews.app.message.send.domain.SendMessageClient;
+import com.mangkyu.devnews.system.bean.RealService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
+@RealService
 @RequiredArgsConstructor
 class SendMessageClientFeignAdapter implements SendMessageClient {
 

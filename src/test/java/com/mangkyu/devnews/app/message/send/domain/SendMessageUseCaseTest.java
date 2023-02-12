@@ -1,16 +1,11 @@
 package com.mangkyu.devnews.app.message.send.domain;
 
-import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
 import com.mangkyu.devnews.app.accesstoken.issue.domain.IssueAccessTokenUseCase;
-import com.mangkyu.devnews.app.message.MessageConfiguration;
-import com.mangkyu.devnews.config.properties.PropertiesConfig;
-import com.mangkyu.system.TestActiveProfile;
+import com.mangkyu.devnews.app.message.MessageTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@TestActiveProfile
-@SpringBootTest(classes = {MessageConfiguration.class, AccessTokenConfiguration.class, PropertiesConfig.class})
+@MessageTestConfig
 class SendMessageUseCaseTest {
 
     @Autowired

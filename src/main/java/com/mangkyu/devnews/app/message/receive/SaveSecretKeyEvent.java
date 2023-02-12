@@ -10,7 +10,7 @@ public class SaveSecretKeyEvent extends ReceiveMessageEvent {
     }
 
     public String getSecretKey() {
-        String message = getMessage().getMessage();
+        String message = getMessage();
         String[] split = message.split(" ");
         if (ArrayUtils.getLength(split) < 2) {
             return StringUtils.EMPTY;

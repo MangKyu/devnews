@@ -1,16 +1,12 @@
 package com.mangkyu.devnews.app.accesstoken.issue.domain;
 
-import com.mangkyu.devnews.app.accesstoken.AccessTokenConfiguration;
-import com.mangkyu.devnews.config.properties.PropertiesConfig;
-import com.mangkyu.system.TestActiveProfile;
+import com.mangkyu.devnews.app.accesstoken.AccessTokenTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestActiveProfile
-@SpringBootTest(classes = {AccessTokenConfiguration.class, PropertiesConfig.class})
+@AccessTokenTestConfig
 class IssueAccessTokenUseCaseTest {
 
     @Autowired

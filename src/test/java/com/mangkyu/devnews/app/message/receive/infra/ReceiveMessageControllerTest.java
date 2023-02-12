@@ -16,9 +16,6 @@ import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@AutoConfigureJson
-@AutoConfigureWebMvc
-@AutoConfigureMockMvc
 @MessageTestConfig
 class ReceiveMessageControllerTest {
 

@@ -1,5 +1,6 @@
 package com.mangkyu.devnews.app.message.question.domain;
 
+import com.mangkyu.devnews.app.member.add.domain.AddMemberUseCase;
 import com.mangkyu.devnews.app.message.MessageTestConfig;
 import com.mangkyu.devnews.app.message.receive.QuestionMessageEvent;
 import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
@@ -21,11 +22,17 @@ class QuestionMessageUseCaseTest {
     private SendMessageUseCase sendMessageUseCase;
 
     @Autowired
+    private AddMemberUseCase addMemberUseCase;
+
+    @Autowired
     private ApplicationEventPublisher publisher;
 
     @Test
     void 질문메세지처리() {
         // given
+        String userId = "c72af563-0f21-4736-11e4-045237113344";
+        addMemberUseCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+
         QuestionMessageEvent event = questionMessageEvent();
 
         // when

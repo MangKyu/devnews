@@ -19,15 +19,15 @@ class AddMemberUseCase {
 
     @EventListener
     @Transactional
-    void save(SaveSecretKeyEvent event) {
+    public void save(SaveSecretKeyEvent event) {
         ReceiveMessage message = event.getMessage();
-        Member member = add(message.getUserId(), message.getDomainId(), message.getChannelId(), message.getMessage());
+        Member member = add(message.getUserId(), message.getDomainId(), message.getChannelId(), event.getSecretKey());
 
         member.update(message.getChannelId(), message.getMessage());
     }
 
     @Transactional
-    public Member add(String userId, int domainId, String channelId, String secretKey) {
+    Member add(String userId, int domainId, String channelId, String secretKey) {
         return findMemberUseCase.find(userId)
                 .orElseGet(() -> save(userId, domainId, channelId, secretKey));
 

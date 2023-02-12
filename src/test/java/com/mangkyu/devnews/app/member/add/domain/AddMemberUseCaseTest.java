@@ -42,7 +42,7 @@ class AddMemberUseCaseTest {
                 .userId(userId)
                 .domainId(1)
                 .channelId("jsadpoasdjpo")
-                .message("secretKey")
+                .message("/키등록 secretKey")
                 .build();
 
         SaveSecretKeyEvent event = new SaveSecretKeyEvent(message);
@@ -62,13 +62,13 @@ class AddMemberUseCaseTest {
                 .userId(userId)
                 .domainId(1)
                 .channelId("channelId")
-                .message("secretKey")
+                .message("/키등록 secretKey")
                 .build();
 
         eventPublisher.publishEvent(new SaveSecretKeyEvent(message));
 
         String newChannelId = "newChannelId";
-        String newSecretKey = "newSecretKey";
+        String newSecretKey = "/키등록 newSecretKey";
         ReceiveMessage updateMessage = ReceiveMessage.builder()
                 .userId(userId)
                 .domainId(1)

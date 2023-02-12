@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-//@TestActiveProfile
+@TestActiveProfile
 @EnableJpaRepositories(basePackageClasses = MemberConfiguration.class)
 @EntityScan(basePackageClasses = MemberConfiguration.class)
 @AutoConfigureDataJpa

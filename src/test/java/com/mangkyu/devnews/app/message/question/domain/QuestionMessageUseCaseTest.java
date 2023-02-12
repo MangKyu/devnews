@@ -1,25 +1,18 @@
 package com.mangkyu.devnews.app.message.question.domain;
 
+import com.mangkyu.devnews.app.member.Member;
 import com.mangkyu.devnews.app.member.add.domain.AddMemberUseCase;
 import com.mangkyu.devnews.app.message.MessageTestConfig;
 import com.mangkyu.devnews.app.message.receive.QuestionMessageEvent;
-import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
-import com.mangkyu.devnews.app.message.send.domain.SendMessageUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 
+import static com.mangkyu.devnews.app.member.TestMemberData.member;
+import static com.mangkyu.devnews.app.message.TestMessageData.questionMessageEvent;
+
 @MessageTestConfig
 class QuestionMessageUseCaseTest {
-
-    @Autowired
-    private QuestionMessageUseCase useCase;
-
-    @Autowired
-    private GetQuestionAnswerClient client;
-
-    @Autowired
-    private SendMessageUseCase sendMessageUseCase;
 
     @Autowired
     private AddMemberUseCase addMemberUseCase;
@@ -30,8 +23,8 @@ class QuestionMessageUseCaseTest {
     @Test
     void 질문메세지처리() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
-        addMemberUseCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+        Member member = member();
+        addMemberUseCase.add(member.getUserId(), member.getDomainId(), member.getChannelId(), member.getSecretKey());
 
         QuestionMessageEvent event = questionMessageEvent();
 
@@ -41,14 +34,4 @@ class QuestionMessageUseCaseTest {
         // then
     }
 
-    private QuestionMessageEvent questionMessageEvent() {
-        ReceiveMessage message = ReceiveMessage.builder()
-                .userId("c72af563-0f21-4736-11e4-045237113344")
-                .domainId(40029600)
-                .channelId("12345a12-b12c-12d3-e123fghijkl")
-                .message("/질문 질문")
-                .build();
-
-        return new QuestionMessageEvent(message);
-    }
 }

@@ -2,6 +2,7 @@ package com.mangkyu.devnews.app.member;
 
 import org.junit.jupiter.api.Test;
 
+import static com.mangkyu.devnews.app.member.TestMemberData.member;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MemberTest {
@@ -11,11 +12,8 @@ class MemberTest {
         // given
         String newChannelId = "newChannelId";
         String newSecretKey = "newSecretKey";
+        Member member = member();
 
-        Member member = Member.builder()
-                .channelId("jsadpoasdjpo")
-                .secretKey("secretKey")
-                .build();
 
         // when
         member.update(newChannelId, newSecretKey);

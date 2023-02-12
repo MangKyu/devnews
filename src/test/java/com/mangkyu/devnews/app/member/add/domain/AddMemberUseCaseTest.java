@@ -3,7 +3,6 @@ package com.mangkyu.devnews.app.member.add.domain;
 import com.mangkyu.devnews.app.member.Member;
 import com.mangkyu.devnews.app.member.MemberTestConfig;
 import com.mangkyu.devnews.app.member.find.domain.FindMemberUseCase;
-import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
 import com.mangkyu.devnews.app.message.receive.SaveSecretKeyEvent;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,8 @@ import org.springframework.context.ApplicationEventPublisher;
 
 import java.util.Optional;
 
+import static com.mangkyu.devnews.app.member.TestMemberData.member;
+import static com.mangkyu.devnews.app.message.TestMessageData.saveSecretKeyEvent;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @MemberTestConfig
@@ -26,81 +27,61 @@ class AddMemberUseCaseTest {
     @Test
     void 사용자등록이벤트수신_성공_첫등록() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
-        ReceiveMessage message = ReceiveMessage.builder()
-                .userId(userId)
-                .domainId(1)
-                .channelId("jsadpoasdjpo")
-                .message("/키등록 secretKey")
-                .build();
-
-        SaveSecretKeyEvent event = new SaveSecretKeyEvent(message);
+        Member member = member();
+        SaveSecretKeyEvent event = saveSecretKeyEvent();
 
         // when
         eventPublisher.publishEvent(event);
 
         // then
-        assertThat(findMemberUseCase.find(userId)).isNotEmpty();
+        assertThat(findMemberUseCase.find(member.getUserId())).isNotEmpty();
     }
 
     @Test
     void 사용자등록이벤트수신_성공_존재하는정보갱신() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
-        ReceiveMessage message = ReceiveMessage.builder()
-                .userId(userId)
-                .domainId(1)
-                .channelId("channelId")
-                .message("/키등록 secretKey")
-                .build();
-
-        eventPublisher.publishEvent(new SaveSecretKeyEvent(message));
+        Member member = member();
+        eventPublisher.publishEvent(saveSecretKeyEvent());
 
         String newChannelId = "newChannelId";
         String newSecretKey = "/키등록 newSecretKey";
-        ReceiveMessage updateMessage = ReceiveMessage.builder()
-                .userId(userId)
-                .domainId(1)
-                .channelId(newChannelId)
-                .message(newSecretKey)
-                .build();
+        SaveSecretKeyEvent event = saveSecretKeyEvent(newChannelId, newSecretKey);
 
         // when
-        eventPublisher.publishEvent(new SaveSecretKeyEvent(updateMessage));
+        eventPublisher.publishEvent(event);
 
         // then
-        Optional<Member> result = findMemberUseCase.find(userId);
+        Optional<Member> result = findMemberUseCase.find(member.getUserId());
         assertThat(result).isNotEmpty();
 
-        Member member = result.get();
-        assertThat(member.getChannelId()).isEqualTo(newChannelId);
-        assertThat(member.getSecretKey()).isEqualTo(newSecretKey);
+        Member resultMember = result.get();
+        assertThat(resultMember.getChannelId()).isEqualTo(newChannelId);
+        assertThat(resultMember.getSecretKey()).isEqualTo(newSecretKey);
     }
 
     @Test
     void 사용자등록_성공_첫등록() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
+        Member member = member();
 
         // when
-        useCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+        useCase.add(member.getUserId(), member.getDomainId(), member.getChannelId(), member.getSecretKey());
 
         // then
-        assertThat(findMemberUseCase.find(userId)).isNotEmpty();
+        assertThat(findMemberUseCase.find(member.getUserId())).isNotEmpty();
     }
 
     @Test
     void 사용자등록_성공_존재하는정보갱신() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
-        useCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+        Member member = member();
+        useCase.add(member.getUserId(), member.getDomainId(), member.getChannelId(), member.getSecretKey());
 
         // when
-        useCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+        useCase.add(member.getUserId(), member.getDomainId(), member.getChannelId(), member.getSecretKey());
 
         // then
-        assertThat(findMemberUseCase.find(userId)).isNotEmpty();
+        assertThat(findMemberUseCase.find(member.getUserId())).isNotEmpty();
     }
-
 
 }

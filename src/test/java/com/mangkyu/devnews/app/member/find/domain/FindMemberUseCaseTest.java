@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
+import static com.mangkyu.devnews.app.member.TestMemberData.member;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -24,10 +25,10 @@ class FindMemberUseCaseTest {
     @Test
     void 사용자찾기_없음_Optinal반환() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
+        Member member = member();
 
         // when
-        Optional<Member> result = useCase.find(userId);
+        Optional<Member> result = useCase.find(member.getUserId());
 
         // then
         assertThat(result).isEmpty();
@@ -36,10 +37,10 @@ class FindMemberUseCaseTest {
     @Test
     void 등록된사용자찾기_없음_에러반환() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
+        Member member = member();
 
         // when
-        assertThatThrownBy(() -> useCase.findByUserId(userId))
+        assertThatThrownBy(() -> useCase.findByUserId(member.getUserId()))
                 .isInstanceOf(IllegalStateException.class);
 
         // then
@@ -48,11 +49,11 @@ class FindMemberUseCaseTest {
     @Test
     void 등록된사용자찾기_있음() {
         // given
-        String userId = "c72af563-0f21-4736-11e4-045237113344";
-        addMemberUseCase.add(userId, 1, "jsadpoasdjpo", "secretKey");
+        Member member = member();
+        addMemberUseCase.add(member.getUserId(), member.getDomainId(), member.getChannelId(), member.getSecretKey());
 
         // when
-        Member result = useCase.findByUserId(userId);
+        Member result = useCase.findByUserId(member.getUserId());
 
         // then
         assertThat(result).isNotNull();

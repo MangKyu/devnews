@@ -1,9 +1,6 @@
 package com.mangkyu.devnews.app.message.receive.domain;
 
-import com.mangkyu.devnews.app.message.receive.ReceiveMessage;
-import com.mangkyu.devnews.app.message.receive.ReceiveMessageEvent;
-import com.mangkyu.devnews.app.message.receive.SaveSecretKeyEvent;
-import com.mangkyu.devnews.app.message.receive.TalkEvent;
+import com.mangkyu.devnews.app.message.receive.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -32,6 +29,7 @@ class ReceiveMessageTest {
     public static List<Arguments> messageType() {
         return List.of(
                 Arguments.of("/키등록 secretKey", SaveSecretKeyEvent.class),
+                Arguments.of("/질문 질문내용입니다", QuestionMessageEvent.class),
                 Arguments.of("hello", TalkEvent.class)
         );
     }

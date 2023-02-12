@@ -25,6 +25,10 @@ public class ReceiveMessage {
             return new SaveSecretKeyEvent(this);
         }
 
+        if (message.startsWith("/질문")) {
+            return new QuestionMessageEvent(this);
+        }
+
         return new TalkEvent(this);
     }
 }
